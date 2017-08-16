@@ -4,15 +4,15 @@
 \@ifclasswith{my_resume}{multipage}{\multipagetrue}{\multipagefalse}
 
 \ifmultipage
-       \LoadClass[10pt]{extarticle}
+   \LoadClass[10pt]{extarticle}
 \else
-       \LoadClass[8pt]{extarticle}
+   \LoadClass[8pt]{extarticle}
 \fi
 \RequirePackage{titlesec}
 \RequirePackage{enumitem}
 \RequirePackage{everypage}
 \RequirePackage{xcolor}
-\RequirePackage{svg}
+\RequirePackage{svg} % enable --shell-escape for pdflatex
 \RequirePackage[hidelinks]{hyperref}
 
 \RequirePackage{helvet}
@@ -187,7 +187,7 @@
 }
 
 % ----------------------- Header bar -------------------------
-\newcommand\HeaderBar[4] {% Name + title, description, phone, email
+\newcommand\HeaderBar[6] {% Name + title, description, phone, email
 \smash{
 	\hspace*{
 		\dimexpr-\PageLeftMargin-0.112in
@@ -201,7 +201,7 @@
 				\vspace{0.75in}%
 				\strut%
 				% ----------- Here is the name and personal info -------------	
-				\begin{minipage}[t]{\dimexpr.62\paperwidth-\inset}
+				\begin{minipage}[t]{.6\dimexpr\paperwidth-\inset}
 					\ifmultipage
 						\textcolor{white}{%
 							{\LARGE{#1}}
@@ -216,34 +216,55 @@
 						}
 					\fi
 				\end{minipage}%
-				\hspace{.066\paperwidth}%
-				\begin{minipage}[t]{\dimexpr.35\paperwidth-\inset}
+				\hspace{.032\dimexpr\paperwidth-\inset}%
+				\begin{minipage}[t]{.028\dimexpr\paperwidth-\inset}
+					\ifmultipage
+						\vspace{0.102in}
+						\raisebox{-.05\height}{
+							\href{#4}{\includesvg[width=8.5pt]{linkedin}}
+						}
+						\\
+						\raisebox{-.15\height}{
+							\href{#3}{\includesvg[width=8.5pt]{website}}
+						}
+					\else
+						\vspace{0.075in}
+						\raisebox{-.05\height}{
+							\href{#4}{\includesvg[width=8.5pt]{linkedin}}
+						}
+						\\
+						\raisebox{-.25\height}{
+							\href{#3}{\includesvg[width=8.5pt]{website}}
+						}
+					\fi
+				\end{minipage}
+				\begin{minipage}[t]{.32\dimexpr\paperwidth-\inset}
 					\ifmultipage
 						\vspace{0.102in}
 						{
 							\textcolor{white}{
-								\raisebox{-.18\height}{
-									\includesvg[width=0.06\textwidth]{smartphone}
-								}
-								#3\\
-								\raisebox{-.18\height}{
-									\includesvg[width=0.06\textwidth]{mail}
-								}
-								\EmailLink{#4}
+								\raisebox{-.2\height}{
+									\includesvg[width=10pt]{smartphone}
+								}\hspace*{-2mm}
+								#5\\
+								\raisebox{-.2\height}{
+									\includesvg[width=10pt]{mail}
+								}\hspace*{-2mm}
+								\EmailLink{#6}
 							}
 						}
 					\else
-						\vspace{0.075in}
+						\vspace{0.085in}
 						{\large
 							\textcolor{white}{
-								\raisebox{-.18\height}{
-									\includesvg[width=0.06\textwidth]{smartphone}
-								}
-								#3\\
-								\raisebox{-.18\height}{
-									\includesvg[width=0.06\textwidth]{mail}
-								}
-								\href{mailto:#4}{#4}
+								\raisebox{-.2\height}{
+									\includesvg[width=10pt]{smartphone}
+								}\hspace*{-2mm}
+								#5\\
+								\raisebox{-.2\height}{
+									\includesvg[width=10pt]{mail}
+								}\hspace*{-2mm}
+								\EmailLink{#6}
 							}
 						}
 					\fi
