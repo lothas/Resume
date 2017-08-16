@@ -6,6 +6,7 @@
 \RequirePackage{everypage}
 \RequirePackage{xcolor}
 \RequirePackage{svg}
+\RequirePackage[hidelinks]{hyperref}
 
 \RequirePackage{tgadventor}
 %\RequirePackage{tgheros}
@@ -29,6 +30,12 @@
 
 \RequirePackage[top=\PageTopMargin, bottom=\PageBottomMargin, left=\PageLeftMargin, right=\PageRightMargin]{geometry}
 
+\hypersetup{
+	colorlinks=false,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+}
 % ------------------------- Section Formatting -------------------------
 \titleformat{\section}
 {\normalfont\scshape\LARGE}{\thesection}{}{}
@@ -111,25 +118,25 @@
 \newcommand\HeaderBar[4] {% Name + title, description, phone, email
 \smash{
 	\hspace*{
-		\dimexpr-\PageLeftMargin-0.144in
+		\dimexpr-\PageLeftMargin-0.112in
 	}%
 	\raisebox{
 		\dimexpr\PageTopMargin-.64in\relax
 	}{
 		\colorbox{color1}{%
-			\parbox{\paperwidth}{
-				\leftskip=\inset\rightskip=\inset
-				\vspace{0.75in}
-				\strut
+			\parbox{\paperwidth}{%
+				\leftskip=\inset\rightskip=\inset%
+				\vspace{0.75in}%
+				\strut%
 				% ----------- Here is the name and personal info -------------	
 				\begin{minipage}[t]{\dimexpr.62\paperwidth-\inset}
-					\textcolor{white}{
-						{\huge \textbf{#1}}
-						\vspace{0.05in} \\
+					\textcolor{white}{%
+						{\huge\textbf{#1}}
+						\vspace{0.05in}\\%
 						{\large #2}
 					}
 				\end{minipage}%
-				\hspace{.06\paperwidth}%
+				\hspace{.066\paperwidth}%
 				\begin{minipage}[t]{\dimexpr.35\paperwidth-\inset}
 					{\large
 						\vspace{0.062in}
@@ -137,11 +144,11 @@
 							\raisebox{-.16\height}{
 								\includesvg[width=0.06\textwidth]{smartphone}
 							}
-							#3 \\
+							#3\\
 							\raisebox{-.16\height}{
 								\includesvg[width=0.06\textwidth]{mail}
 							}
-							#4
+							\href{mailto:#4}{#4}
 						}
 					}
 				\end{minipage}
