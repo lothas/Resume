@@ -1,4 +1,5 @@
-\documentclass[8pt]{my_resume}
+\documentclass[multipage]{my_resume}
+%\documentclass{my_resume}
 
 \begin{document}
 
@@ -7,7 +8,7 @@
 \HeaderBar{%
 	Jonathan Spitz, PhD.
 }{%
-	A creative roboticist, with a passion for solving complex problems.
+	A creative roboticist, with a passion for solving complex problems.\\%
 	Skilled researcher helping humanoid robots learn how to move.
 }{%
 	+33-624-190544
@@ -15,14 +16,14 @@
 	spitz.jonathan@gmail.com
 }
 
-\TwoColBox{white}{
+\MainContent{white}{
 	\section*{Professional experience}
 	\PositionEntry{%
-		February 2017 - Present%
+		February 2017 -- Present%
 	}{%
-		Postdoctoral researcher at Inria
+		Postdoctoral researcher at Inria%
 	}{%
-		Nancy, France
+		Nancy, France%
 	}{%
 		\begin{itemize}
 			\item Developed whole-body control algorithms for humanoid robots.%
@@ -33,11 +34,11 @@
 	}\EntrySpacing
 
 	\PositionEntry{%
-		October 2014 - May 2016%
+		October 2014 -- May 2016%
 	}{%
-		Rapid prototyping of walking robots
+		Rapid prototyping of walking robots%
 	}{%
-		Haifa, Israel
+		Haifa, Israel%
 	}{%
 		\begin{itemize}
 			\item Developed 3D printed walking and wheeled robots, including mechanical and electronic components.%
@@ -45,15 +46,15 @@
 			\item Programmed control loops and Bluetooth communications on
 			Arduino.%
 			\item Robots received coverage at \href{http://techcrunch.com/2015/01/14/designer-builds-cute-little-3d-printed-robots-you-know-for-kids/}{TechCrunch}, \href{http://spectrum.ieee.org/automaton/robotics/robotics-hardware/video-friday-humanoids-sing-eyeball-robot-kuka-ping-pong}{IEEE Spectrum}.
-		\end{itemize}
-	}\EntrySpacing
+		\end{itemize}%
+	}\EntrySpacing%
 
 	\PositionEntry{%
-		August 2012 - June 2013%
+		August 2012 -- June 2013%
 	}{%
-		DARPA Virtual Robotics Challenge
+		DARPA Virtual Robotics Challenge%
 	}{%
-		Haifa, Israel
+		Haifa, Israel%
 	}{%
 		\begin{itemize}
 			\item Created controllers for locomotion of the ATLAS humanoid robot.
@@ -66,11 +67,11 @@
 	}\EntrySpacing
 
 	\PositionEntry{%
-		April 2009 - December 2009%
+		April 2009 -- December 2009%
 	}{%
-		Undergraduate Project: Robotics Simulation Environment (ROSIE)
+		Undergraduate Project: Robotics Simulation Environment (ROSIE)%
 	}{%
-		Haifa, Israel
+		Haifa, Israel%
 	}{%
 		\begin{itemize}
 			\item Created a robotics simulation environment for the Robotics 101
@@ -80,30 +81,30 @@
 	}\EntrySpacing
 
 	\PositionEntry{%
-		August 2007 - September 2007%
+		August 2007 -- September 2007%
 	}{%
-		Intern at Guzik Technical Enterprises
+		Intern at Guzik Technical Enterprises%
 	}{%
-		Mountain View, CA, USA
+		Mountain View, CA, USA%
 	}{%
 		\begin{itemize}
 			\item Designed SolidWorks models for new electronic equipment composed of a rack, a motherboard and several connected
 			boards.
-			\item Worked with electrical engineering department to select and position connectors for all the project’s boards.
+			\item Worked with electrical engineering department to select and position connectors for all the project's boards.
 		\end{itemize}
 	}\EntrySpacing
 
 	\section*{Education}
 	\DiplomaEntry{%
-		October 2009 - October 2015
+		October 2009 -- October 2015
 	}{
 		Ph.D. in Mechanical Engineering%
 	}{%
-		\textbf{,} Direct PhD track for excellent students, GPA: 94/100.
+		\textbf{,} Direct PhD track for excellent students, GPA: 94/100.%
 	}{
-		Technion, Faculty of Mechanical Engineering
+		Technion, Faculty of Mechanical Engineering%
 	}{
-		Haifa, Israel
+		Haifa, Israel%
 	}{
 		Research Title: Bio-Inspired Controllers for Dynamic Locomotion\\%
 		Advisor: Assoc. Prof. Miriam Zacksenhouse%
@@ -115,13 +116,13 @@
 	}\EntrySpacing
 	
 	\SimpleDiplomaEntry{%
-		March 2005 - February 2010
+		March 2005 -- February 2010%
 	}{
 		B.Sc. in Mechanical Engineering%
 	}{%
-		Technion, Faculty of Mechanical Engineering
+		Technion, Faculty of Mechanical Engineering%
 	}{
-		Haifa, Israel
+		Haifa, Israel%
 	}\EntrySpacing
 }{
 	\section*{Other skills}
@@ -132,18 +133,19 @@
 	
 	\section*{Fellowships and awards}
 	\underline{June 2014}: Late Prof. Roland Weill Award for excellence in doctoral research.\\%
-	\underline{December 2012}: Fine's scholarship for 1 st year PhD students.\vspace{0.15em}\\%
+	\underline{December 2012}: Fine's scholarship for 1\textsuperscript{st} year PhD students.\vspace{0.15em}\\%
 	\underline{March 2007}: Dean's Excellence Award for outstanding GPA (4\textsuperscript{th} semester).
 	
 	\section*{Patents}
-	$\left[1\right]$ %
-	``Robot, device and a method for a central pattern generator (CPG) based control of a movement of the robot'', United States Patent Application 20140031986, January 2014.
+	\BibEntry{1}{``Robot, device and a method for a central pattern generator (CPG) based control of a movement of the robot'', United States Patent Application 20140031986, January 2014.}
 	
 	\section*{List of publications}
 	\underline{\smash{Refereed papers in Journals}}\vspace{0.15em}\\%
 	\BibEntry{1}{J. Spitz, A. Evstrachin, M. Zacksenhouse,``Minimal Feedback to a Rhythm Generator Improves the Robustness to Slope Variations of a Compass Biped'', Bioinspiration \& Biomimetics, August 2015.}\\%
 	\BibEntry{2}{J. Spitz, E. Sidorov, M. Zacksenhouse, ``Humanoids Can Take Advantage of Crab-Walking Gaits'', International Journal of Humanoid Robotics, December 2014.}
-	
+	\EntrySpacing
+
+	\noindent
 	\underline{\smash{Refereed papers in Conference Proceedings (*- presenter)}}\vspace{0.15em}\\%
 	\BibEntry{1}{J. Spitz *, Y. Or, M. Zacksenhouse, ``Towards a Biologically Inspired Open Loop Controller for Dynamic Biped Locomotion'', In Proceedings of the 2011 International Conference on Robotics and Biomimetics.}
 
@@ -152,7 +154,9 @@
 	\BibEntry{1}{``Bio-inspired Controllers for Dynamic Walking: CPG Enhanced with Minimal Feedback'', Israeli Conference on Robotics, 2013.}\\%
 	\BibEntry{2}{``A Biologically Inspired Controller for Dynamic Bipedal Locomotion'', Graduate Students in Control Conference, 2012.}\\%
 	\BibEntry{3}{``Towards a Biologically Inspired Open Loop Controller for Dynamic Biped Locomotion'', IEEE International Conference on Robotics and Biomimetics, Phuket, Thailand, 2011.}
+	\EntrySpacing
 	
+	\noindent
 	\underline{\smash{Poster Presentations}}\vspace{0.15em}\\%
 	\BibEntry{1}{``Analytical and numerical tools for limit-cycle evaluation in hybrid dynamical system'', Dynamic Walking Conference, ETH Zurich, Switzerland, 2014.}\\%
 	\BibEntry{2}{``Bio-Inspired Controllers for Dynamic Locomotion'', Dynamic Walking Conference, CMU Pittsburgh, USA, 2013.}\\%
@@ -160,11 +164,13 @@
 	
 	\section*{Contact information for references}
 	\begin{itemize}
-		\item Assoc. Prof. Jean-Baptiste Mouret (Inria), 
-		\item Assoc. Prof. Serena Ivaldi (Inria), 
-		\item Assoc. Prof. Miriam Zacksenhouse (Technion), +972-54-5820404, \href{mailto:mermz@technion.ac.il}{mermz@technion.ac.il}
-%		\item Assoc. Prof. Yizhar Or (Technion), +972-77-8875493, izi@technion.ac.il
-		\item Lauri Viitas (Guzik), +1-650-625-8000, \href{mailto:lauriv@guzik.com}{lauriv@guzik.com}
+		\item Jean-Baptiste Mouret, PhD. (Research Director at Inria), \EmailLink{jean-baptiste.mouret@inria.fr}
+		\item Serena Ivaldi, PhD. (Research Scientist at Inria), \EmailLink{serena.ivaldi@inria.fr}
+		\item Miriam Zacksenhouse, PhD. (Assoc. Prof. Technion), +972-54-5820404, \EmailLink{mermz@technion.ac.il}
+%		\item Yizhar Or, PhD. (Assoc. Prof. at Technion), +972-77-8875493, 	
+%		\EmailLink{izi@technion.ac.il}
+		\item Ari Yakir (Project Manager at Cogniteam), \EmailLink{ari@cogniteam.com}
+		\item Lauri Viitas (VP of Product and Business Development at Guzik), +1-650-625-8000, \EmailLink{lauriv@guzik.com}
 	\end{itemize}
 }
 

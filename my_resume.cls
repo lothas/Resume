@@ -1,6 +1,13 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{my_resume}[15/08/2017 custom resume class]
-\LoadClassWithOptions{extarticle}
+\newif\ifmultipage
+\@ifclasswith{my_resume}{multipage}{\multipagetrue}{\multipagefalse}
+
+\ifmultipage
+       \LoadClass[10pt]{extarticle}
+\else
+       \LoadClass[8pt]{extarticle}
+\fi
 \RequirePackage{titlesec}
 \RequirePackage{enumitem}
 \RequirePackage{everypage}
@@ -8,7 +15,8 @@
 \RequirePackage{svg}
 \RequirePackage[hidelinks]{hyperref}
 
-\RequirePackage{tgadventor}
+\RequirePackage{helvet}
+%\RequirePackage{tgadventor}
 %\RequirePackage{tgheros}
 \renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
 \RequirePackage[T1]{fontenc}
@@ -17,13 +25,20 @@
 % -------------------------- LaTeX Formatting --------------------------
 % ----------------------------------------------------------------------
 
-\definecolor{color1}{RGB}{100,130,220}
+\definecolor{color1}{RGB}{95,110,180}
 
 % THESE ARE LaTeX DEFAULTS; CAN CHANGE IF NEEDED.
-\def\PageTopMargin{1.25in}
-\def\PageBottomMargin{0.4in}
-\def\PageLeftMargin{0.6in}
-\def\PageRightMargin{0.6in}
+\ifmultipage
+   \def\PageTopMargin{0.8in}
+   \def\PageBottomMargin{0.6in}
+   \def\PageLeftMargin{0.8in}
+   \def\PageRightMargin{0.8in}
+\else
+   \def\PageTopMargin{1.25in}
+   \def\PageBottomMargin{0.4in}
+   \def\PageLeftMargin{0.6in}
+   \def\PageRightMargin{0.6in}
+\fi
 
 \newlength\inset
 \inset=\PageLeftMargin\relax
@@ -31,43 +46,93 @@
 \RequirePackage[top=\PageTopMargin, bottom=\PageBottomMargin, left=\PageLeftMargin, right=\PageRightMargin]{geometry}
 
 \hypersetup{
-	colorlinks=false,
-	linkcolor=blue,
-	filecolor=magenta,      
-	urlcolor=cyan,
+	colorlinks=false
 }
 % ------------------------- Section Formatting -------------------------
-\titleformat{\section}
-{\normalfont\scshape\LARGE}{\thesection}{}{}
-\titlespacing*{\section}
-{0pt}{2pt}{1pt} % left, top, bottom
+\ifmultipage
+	\titleformat{\section}
+	{\normalfont\scshape\large\bfseries\color{color1}\centering}{\thesection}{}{}
+	\titlespacing*{\section}
+	{0pt}{8pt}{1pt} % left, top, bottom
+\else
+	\titleformat{\section}
+	{\normalfont\scshape\Large\bfseries\color{color1}}{\thesection}{}{}
+	\titlespacing*{\section}
+	{0pt}{3pt}{1pt} % left, top, bottom
+\fi
 
 \setlist[itemize]{itemsep=-4pt, topsep=1pt, leftmargin=10pt}
 
 % ----------------------------------------------------------------------
+\ifmultipage
+	\newcommand\MainContent[3]{
+		\vspace{0.8in}
+		#2\\%
+		#3
+	}
+\else
+	\newcommand\MainContent[3]{
+		\centering\makebox[0pt]{%
+			\colorbox{#1}{
+				\parbox{\paperwidth}{
+					\leftskip=\inset\rightskip=\inset%
+					\begin{minipage}[t]{\dimexpr.485\paperwidth-\inset}\strut#2\end{minipage}%
+					\hspace{.03\paperwidth}%
+					\begin{minipage}[t]{\dimexpr.485\paperwidth-\inset}\strut#3\end{minipage}%
+				}
+			}
+		}
+		\par
+	}
+\fi
 
-\newcommand\TwoColBox[3]{
-	\centering\makebox[0pt]{%
-		\colorbox{#1}{
-			\parbox{\paperwidth}{
-				\leftskip=\inset\rightskip=\inset%
-				\begin{minipage}[t]{\dimexpr.485\paperwidth-\inset}\strut#2\end{minipage}%
-				\hspace{.03\paperwidth}%
-				\begin{minipage}[t]{\dimexpr.485\paperwidth-\inset}\strut#3\end{minipage}%
+\newcommand\TopBar[2]{%
+	\AddEverypageHook{
+		\smash{
+			\hspace*{
+				\ifmultipage
+				\dimexpr-\PageLeftMargin-0.4in
+				\else
+				\dimexpr-\PageLeftMargin-0.48in
+				\fi
+			}%
+			\raisebox{
+				\ifmultipage
+				\dimexpr\PageTopMargin+0.02in\relax
+				\else
+				\dimexpr\PageTopMargin-0.1in\relax
+				\fi
+			}{
+			\colorbox{#1}{%
+				\parbox{\paperwidth}{
+					\leftskip=\inset\rightskip=\inset
+					\strut
+					\vspace{-.16in} \\
+					\textcolor{white}{#2}
+					\vspace{.1in}
+				}
 			}
 		}
 	}
-	\par
+}
 }
 
 \newcommand\BottomBar[2]{%
 	\AddEverypageHook{
 		\smash{
 			\hspace*{
-				\dimexpr-\PageLeftMargin-0.48in
+				\ifmultipage
+					\dimexpr-\PageLeftMargin-0.4in
+				\else
+					\dimexpr-\PageLeftMargin-0.48in
+				\fi
 			}%
 			\raisebox{
-				\dimexpr\PageTopMargin-11.2in\relax
+				\ifmultipage
+					\dimexpr\PageTopMargin-10.75in\relax
+				\else
+					\dimexpr\PageTopMargin-11.2in\relax
+				\fi
 			}{
 				\colorbox{#1}{%
 					\parbox{\paperwidth}{
@@ -84,22 +149,25 @@
 }
 
 \newcommand\PositionEntry[4]{% dates, title, location, description
+	\noindent
 	\underline{\smash{#1}}\vspace{0.2em}\\%
-	{\bf #2} - #3%
+	{\bf #2} -- #3%
 	#4%
 }
 
 \newcommand\DiplomaEntry[6]{% dates, diploma, extras+GPA, institution, location, description
+	\noindent
 	\underline{\smash{#1}}\vspace{0.2em}\\%
 	{\bf #2}#3\\%
-	{\bf #4} - #5\\%
+	{\bf #4} -- #5\\%
 	#6
 }
 
 \newcommand\SimpleDiplomaEntry[4]{% dates, diploma, extras+GPA, institution, location, description
+	\noindent
 	\underline{\smash{#1}}\vspace{0.2em}\\%
 	{\bf #2}\\%
-	{\bf #3} - #4%
+	{\bf #3} -- #4%
 }
 
 \newcommand\SkillEntry[2]{%
@@ -108,11 +176,15 @@
 }
 
 \newcommand\BibEntry[2]{
-	$\left[#1\right]$\hspace*{.8mm}%
+	[#1]\hspace*{.8mm}%
 	#2
 }
 
-\newcommand\EntrySpacing{\vspace{3pt}}
+\newcommand\EntrySpacing{\vspace{2.5pt}}
+
+\newcommand\EmailLink[1]{
+	\href{mailto:#1}{#1}
+}
 
 % ----------------------- Header bar -------------------------
 \newcommand\HeaderBar[4] {% Name + title, description, phone, email
@@ -130,27 +202,51 @@
 				\strut%
 				% ----------- Here is the name and personal info -------------	
 				\begin{minipage}[t]{\dimexpr.62\paperwidth-\inset}
-					\textcolor{white}{%
-						{\huge\textbf{#1}}
-						\vspace{0.05in}\\%
-						{\large #2}
-					}
+					\ifmultipage
+						\textcolor{white}{%
+							{\LARGE{#1}}
+							\vspace{0.05in}\\%
+							{#2}
+						}
+					\else
+						\textcolor{white}{%
+							{\huge\textbf{#1}}
+							\vspace{0.05in}\\%
+							{\large #2}
+						}
+					\fi
 				\end{minipage}%
 				\hspace{.066\paperwidth}%
 				\begin{minipage}[t]{\dimexpr.35\paperwidth-\inset}
-					{\large
-						\vspace{0.062in}
-						\textcolor{white}{
-							\raisebox{-.16\height}{
-								\includesvg[width=0.06\textwidth]{smartphone}
+					\ifmultipage
+						\vspace{0.102in}
+						{
+							\textcolor{white}{
+								\raisebox{-.18\height}{
+									\includesvg[width=0.06\textwidth]{smartphone}
+								}
+								#3\\
+								\raisebox{-.18\height}{
+									\includesvg[width=0.06\textwidth]{mail}
+								}
+								\EmailLink{#4}
 							}
-							#3\\
-							\raisebox{-.16\height}{
-								\includesvg[width=0.06\textwidth]{mail}
-							}
-							\href{mailto:#4}{#4}
 						}
-					}
+					\else
+						\vspace{0.075in}
+						{\large
+							\textcolor{white}{
+								\raisebox{-.18\height}{
+									\includesvg[width=0.06\textwidth]{smartphone}
+								}
+								#3\\
+								\raisebox{-.18\height}{
+									\includesvg[width=0.06\textwidth]{mail}
+								}
+								\href{mailto:#4}{#4}
+							}
+						}
+					\fi
 				\end{minipage}
 				\vspace{0.3in}
 			}
@@ -167,5 +263,6 @@
 %	Header text
 %}
 
+\TopBar{color1}{}
 %\BottomBar{color1}{Maybe some text}
 \BottomBar{color1}{}
