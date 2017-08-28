@@ -1,15 +1,21 @@
 \documentclass[multipage]{my_resume}
 %\documentclass{my_resume}
 
+\usepackage{tabularx}
+
 \begin{document}
 
 \pagenumbering{gobble}% Remove page numbers (and reset to 1)
 
 \HeaderBar{%
-	Jonathan Spitz, Ph.D.
+	Jonathan Spitz, Phd.
 }{%
-	A creative roboticist, with a passion for solving complex problems.\\%
-	Skilled researcher helping humanoid robots learn how to move.
+	%Saint-Georges Stra{\ss}e 82\\54000 Nancy -- Frankreich
+	%
+	Einen kreativer Roboter Entwickler, mit einer Leidenschaft f{\"u}r die L{\"o}sung komplexer Probleme. Erfahrener Forscher, der hilft humanoiden Roboter zu lernen wie man sich bewegt.
+	%
+	%A creative roboticist, with a passion for solving complex problems.\\%
+	%Skilled researcher helping humanoid robots learn how to move.
 }{%
 	http://jonathanspitz.weebly.com/
 }{%
@@ -21,189 +27,230 @@
 }
 
 \MainContent{white}{
-	\section*{Professional experience}
+	\section*{Pers{\"o}nliche Daten}%
+	\ifmultipage
+	\textbf{Geburtsdatum:} 07.06.1985\\%
+	\textbf{Geburtsort:} Mendoza, Argentinien\\%
+	\textbf{Staatsangeh{\"o}rigkeit:} Argentinisch - Israelisch\\%
+	\textbf{Femilienstand:} Ledig\\%
+	\else
+		\begin{tabularx}{1.0\textwidth}{@{}lXr@{}}
+			\textbf{Geburtsdatum:} & & 07.06.1985\\%
+			\textbf{Geburtsort:} & & Mendoza, Argentinien\\%
+			\textbf{Staatsangeh{\"o}rigkeit:} & & Argentinisch - Israelisch\\%
+			\textbf{Femilienstand:} & & Ledig\\%
+		\end{tabularx}
+	\fi
+	\section*{Berufliche Erfahrungen}
 	\PositionEntry{%
-		February 2017 -- Present%
+		Februar 2017 -- Laufend%
 	}{%
-		Postdoctoral researcher at Inria%
+		Postdoktoranden bei Inria%
 	}{%
-		Nancy, France%
+		Nancy, Frankreich%
 	}{%
 		\begin{itemize}
-			\item Developed whole-body control algorithms for humanoid robots in MATLAB/C++.%
-			\item Implemented a machine learning approach to improve the controller's performance within a few trials.%
-			\item Worked with a simulated and real iCub humanoid robot, possessing over 50 degrees of freedom.%
-			\item Aided the development of a miniature exploration robot, as a secondary project.
+			\item Entwickelte Ganzk{\"o}rper-Kontrollalgorithmen f{\"u}r humanoide Roboter in MATLAB/C++.%
+			%Developed whole-body control algorithms for humanoid robots in MATLAB/C++.%
+			\item Implementierte einen Maschinenlernen Ansatz zur Verbesserung der Leistung des Kontrollalgorithmus in wenigen Versuchen.%
+			%Implemented a machine learning approach to improve the controller's performance within a few trials.%
+			\item Arbeitete mit einem simulierten und echten iCub humanoiden Roboter, der {\"u}ber 50 Freiheitsgrade besitzt.%
+			%Worked with a simulated and real iCub humanoid robot, possessing over 50 degrees of freedom.%
+			\item Unterst{\"u}tzte die Entwicklung eines Miniatur-Explorationsroboters als Nebenprojekt.
+			%Aided the development of a miniature exploration robot, as a secondary project.
 		\end{itemize}
 	}\EntrySpacing
 	
 	\PositionEntry{%
-		June 2016 -- December 2016%
+		Juni 2016 -- Dezember 2016%
 	}{%
-		Algorithm engineer at Cogniteam%
+		Algorithmus Ingenieur bei Cogniteam%
 	}{%
 		Petach Tikva, Israel%
 	}{%
 		\begin{itemize}
-			\item Worked on computer vision algorithms for autonomous navigation.%
-			\item Designed a simulation environment to generate artificial data for algorithm testing.%
-			\item Implemented structure-from-motion algorithms using stereo and multiple-view approaches.%
+			\item Bearbeitete auf Computer-Vision-Algorithmen f{\"u}r autonome Navigation.%
+			%Worked on computer vision algorithms for autonomous navigation.%
+			\item Entwickelte eine Simulationsumgebung zur Erzeugung von k{\"u}nstlichen Daten f{\"u}r die Algorithmuspr{\"u}fung.
+			%Designed a simulation environment to generate artificial data for algorithm testing.%
+			\item Implementierte Struktur-aus-Bewegung Algorithmen mit Stereo und Multi-Ansichten Ans{\"a}tzen.
+			%Implemented structure-from-motion algorithms using stereo and multiple-view approaches.%
 		\end{itemize}%
 	}\EntrySpacing%
 
 	\PositionEntry{%
-		March 2015 -- October 2015%
+		M{\"a}rz 2015 -- Oktober 2015%
 	}{%
-		Finalist at BizTEC Entrepreneurship Competition%
+		Finalist im BizTEC Unternehmerwettbewerb%
+		%Finalist at BizTEC Entrepreneurship Competition%
 	}{%
 		Haifa, Israel%
 	}{%
 		\begin{itemize}
-			\item Participated in the summer-school and accelerator stages of the competition. One of 12 finalists out of over 80 teams.%
-			\item Worked on all areas of the lean canvas to bring a robotic toy to market.%
-			\item Robots received coverage at \href{http://techcrunch.com/2015/01/14/designer-builds-cute-little-3d-printed-robots-you-know-for-kids/}{TechCrunch}, \href{http://spectrum.ieee.org/automaton/robotics/robotics-hardware/video-friday-humanoids-sing-eyeball-robot-kuka-ping-pong}{IEEE Spectrum}.
+			\item Nahm an den Sommerschul- und Beschleunigerstufen des Wettbewerbs teil. Einer von 12 Finalisten von {\"u}ber 80 Teams.
+			%Participated in the summer-school and accelerator stages of the competition. One of 12 finalists out of over 80 teams.%
+			\item Bearbeitete auf allen Bereichen der Lean Startup-Methode, um ein Roboter-Spielzeug auf den Markt zu bringen.
+			%Worked on all areas of the lean canvas to bring a robotic toy to market.%
+			\item Die Roboter erhielten Berichterstattungen an
+			%Robots received coverage at
+			\href{http://techcrunch.com/2015/01/14/designer-builds-cute-little-3d-printed-robots-you-know-for-kids/}{TechCrunch}, \href{http://spectrum.ieee.org/automaton/robotics/robotics-hardware/video-friday-humanoids-sing-eyeball-robot-kuka-ping-pong}{IEEE Spectrum}.
 		\end{itemize}%
 	}\EntrySpacing%
 
 	\PositionEntry{%
-		October 2014 -- May 2016%
+		Oktober 2014 -- Mai 2016%
 	}{%
-		Rapid prototyping of walking robots%
+		Rapid Prototyping von Laufrobotern
+		%Rapid prototyping of walking robots%
 	}{%
 		Haifa, Israel%
 	}{%
 		\begin{itemize}
-			\item Developed 3D-printed walking and wheeled robots including mechanical and electronic components.%
-			\item Designed a compliant biped robot based on series-elastic actuators.%
-			\item Programmed control loops and Bluetooth communication on
-			Arduino.%
+			\item Entwickelte 3D-gedruckte Lauf- und R{\"a}derrobotern mit mechanischen und elektronischen Bauteilen.
+			%Developed 3D-printed walking and wheeled robots including mechanical and electronic components.%
+			\item Erstellte einen nachgiebigen Biped Robot, der auf Serien-elastischen Stellantrieben basiert. 
+			%Designed a compliant biped robot based on series-elastic actuators.%
+			\item Programmierte Kontrollalgorithmen und Bluetooth-Kommunikation in Arduino.
+			%Programmed control loops and Bluetooth communication on Arduino.%
 %			\item Robots received coverage at \href{http://techcrunch.com/2015/01/14/designer-builds-cute-little-3d-printed-robots-you-know-for-kids/}{TechCrunch}, \href{http://spectrum.ieee.org/automaton/robotics/robotics-hardware/video-friday-humanoids-sing-eyeball-robot-kuka-ping-pong}{IEEE Spectrum}.
 		\end{itemize}%
 	}\EntrySpacing%
 
 	\PositionEntry{%
-		August 2012 -- June 2013%
+		August 2012 -- Juni 2013%
 	}{%
 		DARPA Virtual Robotics Challenge%
 	}{%
 		Haifa, Israel%
 	}{%
 		\begin{itemize}
-			\item Created controllers for locomotion of the ATLAS humanoid robot.
-			\item Worked in Ubuntu Linux using ROS-Gazebo and C++/python.
-			\item Completed the dismounted mobility task (mud-pit, hills and debris
-			areas) using robust crawling gaits.
-			\item Created a robust, dynamic approach to enter the car using ATLAS.
+			\item Erstellte Kontrollalgorithmen f{\"u}r die Fortbewegung des ATLAS humanoiden Roboters.%
+			%Created controllers for locomotion of the ATLAS humanoid robot.
+			\item Gearbeitete in Ubuntu Linux mit ROS-Gazebo und C++/python.%
+			%Worked in Ubuntu Linux using ROS-Gazebo and C++/python.
+			\item Erledigte die Mobilit{\"a}tsaufgabe (Schlammgrube, H{\"u}gel und Schuttgebiete) mit robusten kriechenden Gangarten.%
+			%Completed the dismounted mobility task (mud-pit, hills and debris areas) using robust crawling gaits.
+			\item Entwickelte einen robusten, dynamischen Ansatz, um das Auto mit ATLAS zu betreten.%
+			%Created a robust, dynamic approach to enter the car using ATLAS.
 		\end{itemize}
 	}\EntrySpacing
 
 	\PositionEntry{%
-		April 2009 -- December 2009%
+		April 2009 -- Dezember 2009%
 	}{%
-		Undergraduate Project: Robotics Simulation Environment (ROSIE)%
+		Bachelor-Projekt: Robotics Simulation Environment (ROSIE)%
 	}{%
 		Haifa, Israel%
 	}{%
 		\begin{itemize}
-			\item Created a robotics simulation environment for the Robotics 101 course, coded in C++ and OpenGL.
-			\item Features included forward and backward kinematics, path planning and Jacobian calculation. 
+			\item Erstellte eine Robotik-Simulationsumgebung f{\"u}r den Robotics 101 Kurs, codiert in C++ und OpenGL.%
+			%Created a robotics simulation environment for the Robotics 101 course, coded in C++ and OpenGL.
+			\item Eigenschaften enthalten Vor-und R{\"u}ckw{\"a}rts-Kinematik, Pfad Planung und Jacobian Berechnung.%
+			%Features included forward and backward kinematics, path planning and Jacobian calculation. 
 		\end{itemize}
 	}\EntrySpacing
 
 	\PositionEntry{%
 		August 2007 -- September 2007%
 	}{%
-		Intern at Guzik Technical Enterprises%
+		Praktikum bei Guzik Technical Enterprises%
 	}{%
 		Mountain View, CA, USA%
 	}{%
 		\begin{itemize}
-			\item Designed SolidWorks models for a new product, including a rack, a motherboard and several connected
-			boards.
-			\item Worked with the electrical engineering department to select and position connectors for all the project's boards.
+			\item Entwarf SolidWorks Modelle f{\"u}r ein neues Produkt, einschlie{\ss}lich eines Racks, eines Motherboards und mehrerer angeschlossener Boards.%
+			%Designed SolidWorks models for a new product, including a rack, a motherboard and several connected	boards.
+			\item Gearbeitete mit der Elektrotechnik-Abteilung zur Auswahl und Positionierung von Steckverbindern f{\"u}r alle Projektboards.%
+			%Worked with the electrical engineering department to select and position connectors for all the project's boards.
 		\end{itemize}
 	}\EntrySpacing
 
-	\section*{Education}
+	\section*{Schulbildung}
 	\DiplomaEntry{%
-		October 2009 -- October 2015
+		Oktober 2009 -- Oktober 2015
 	}{
-		Ph.D. in Mechanical Engineering%
+		Phd. in Maschinenbau%
 	}{%
-		\textbf{,} Direct Ph.D. track for excellent students, GPA: 94/100.%
+		\textbf{,} Direkte Phd. Track f{\"u}r hervorragende Studenten, Notendurchschnitt: 94/100.%
 	}{
-		Technion, Faculty of Mechanical Engineering%
+		Technion, Fakult{\"a}t f{\"u}r Maschinenbau%
 	}{
 		Haifa, Israel%
 	}{
-		Research Title: Bio-Inspired Controllers for Dynamic Locomotion\\%
-		Advisor: Assoc. Prof. Miriam Zacksenhouse%
+		Forschungstitel: Bio-Inspired Controllers for Dynamic Locomotion\\%
+		Berater: ao. Prof. Miriam Zacksenhouse%
 		\begin{itemize}
-			\item Developed biologically inspired controllers that generate stable walking gaits for simple and complex biped models.
-			\item Improved robustness ten-fold using minimal environmental feedback.
-			\item Evolved a range of different gaits using multi-objective genetic	algorithms.
+			\item Entwickelte biologisch inspirierte Kontrollalgorithmen die stabile Laufg{\"a}nge f{\"u}r einfache und komplexe Biped-Modelle erzeugen.%
+			%Developed biologically inspired controllers that generate stable walking gaits for simple and complex biped models.%
+			\item Verbesserte Robustheit zehnfach mit minimalem Umgebung-Feedback.%
+			%Improved robustness ten-fold using minimal environmental feedback.%
+			\item Entwickelte eine Reihe von verschiedenen G{\"a}ngen mit multi-objektiven genetischen Algorithmen.
+			%Evolved a range of different gaits using multi-objective genetic algorithms.%
 		\end{itemize}
 	}\EntrySpacing
 	
 	\SimpleDiplomaEntry{%
-		March 2005 -- February 2010%
+		M{\"a}rz 2005 -- Februar 2010%
 	}{
-		B.Sc. in Mechanical Engineering%
+		BSc in Maschinenbau%
 	}{%
-		Technion, Faculty of Mechanical Engineering%
+		Technion, Fakult{\"a}t f{\"u}r Maschinenbau%
 	}{
 		Haifa, Israel%
-	}\EntrySpacing
+	}
 }{
-	\section*{Other skills}
-	\SkillEntry{Software}{MATLAB (+10 years), Arduino (+5 years), C++ (+5 years), Python (4 years), ROS (1 year).}
-	\SkillEntry{Hardware}{SolidWorks (+10 years), 3D printing (2 years), Rapid prototyping (2 years).}
-	\SkillEntry{Languages}{Spanish (native), English (near native), Hebrew (near native), German (basic proficiency), French (basic proficiency).}%
+	\section*{F{\"a}higkeiten und Zusatzqualifikationen}
+	\SkillEntry{Software}{MATLAB (+10 Jahre), Arduino (+5 Jahre), C++ (+5 Jahre), Python (4 Jahre), ROS (1 Jahr).}
+	\SkillEntry{Hardware}{SolidWorks (+10 Jahre), 3D Drucken (3 Jahre), Rapid-Prototyping (3 Jahre).}
+	\SkillEntry{Sprachen}{Spanisch (C2), Englisch (C2), Hebr{\"a}isch (C1), Deutsch (B1), Franz{\"o}sisch (B1).}%
 	\vspace{-8pt}
 	
-	\section*{Fellowships and awards}
-	\underline{June 2014}: Late Prof. Roland Weill Award for excellence in doctoral research.\\%
-	\underline{December 2012}: Fine's scholarship for 1\textsuperscript{st} year Ph.D. students.\vspace{0.15em}\\%
-	\underline{March 2007}: Dean's Excellence Award for outstanding GPA (4\textsuperscript{th} semester).
+	\section*{Interesse}
+	Startups, Aktienmarkt, Wandern, Sci-Fi.
 	
-	\section*{Patents}
-	\BibEntry{1}{``Robot, device and a method for a central pattern generator (CPG) based control of a movement of the robot'', United States Patent Application 20140031986, January 2014.}
+	\section*{Stipendien und Auszeichnungen}
+	\underline{Juni 2014}: Verstorbene Prof. Roland Weill Auszeichnung f{\"u}r herausragende Leistungen in der Doktorandenforschung.\\%
+	\underline{Dezember 2012}: Fine's Stipendium f{\"u}r das 1. Jahr Phd. Studenten.\vspace{0.15em}\\%
+	\underline{M{\"a}rz 2007}: Auszeichnung des Dekans f{\"u}r herausragende Notendurchschnitt (4. Semester).
 	
-	\section*{List of publications}
-	\underline{\smash{Refereed papers in Journals}}\vspace{0.15em}\\%
+	\section*{Patente}
+	\BibEntry{1}{``Robot, device and a method for a central pattern generator (CPG) based control of a movement of the robot'', United States Patent Application 20140031986, Januar 2014.}
+	
+	\section*{Liste der Publikationen}
+	\underline{\smash{Peer-Review Artikeln in Fachzeitschrift}}\vspace{0.15em}\\%
 	\BibEntry{1}{J. Spitz, R. Yakar, M. Zacksenhouse,``Machine Learning Tools Facilitate Parameter Tuning of Networks of Matsuoka Neurons'', in preparation, August 2017.}\\%
 	\BibEntry{2}{J. Spitz, A. Evstrachin, M. Zacksenhouse,``Minimal Feedback to a Rhythm Generator Improves the Robustness to Slope Variations of a Compass Biped'', Bioinspiration \& Biomimetics, August 2015.}\\%
-	\BibEntry{3}{J. Spitz, E. Sidorov, M. Zacksenhouse, ``Humanoids Can Take Advantage of Crab-Walking Gaits'', International Journal of Humanoid Robotics, December 2014.}
+	\BibEntry{3}{J. Spitz, E. Sidorov, M. Zacksenhouse, ``Humanoids Can Take Advantage of Crab-Walking Gaits'', International Journal of Humanoid Robotics, Dezember 2014.}
 	\EntrySpacing
 
 	\noindent
-	\underline{\smash{Refereed papers in Conference Proceedings}}\vspace{0.15em}\\%
-	\BibEntry{1}{J. Spitz, K. Bouyarmane, S. Ivaldi, J.B. Mouret, ``Trial-and-Error Learning of Repulsors for Humanoid QP-based Whole-Body Control'', submitted to IEEE-RAS
+	\underline{\smash{Peer-Review Artikeln in Tagungsunterlagen}}\vspace{0.15em}\\%
+	\BibEntry{1}{J. Spitz, K. Bouyarmane, S. Ivaldi, J.B. Mouret, ``Trial-and-Error Learning of Repulsors for Humanoid QP-based Whole-Body Control'', eingereicht zu IEEE-RAS
 		Humanoids. 2017.}\\%
 	\BibEntry{2}{J. Spitz, Y. Or, M. Zacksenhouse, ``Towards a Biologically Inspired Open Loop Controller for Dynamic Biped Locomotion'', In Proceedings of the 2011 International Conference on Robotics and Biomimetics.}
 
-	\section*{List of conferences}
-	\underline{\smash{Oral Presentations}}\vspace{0.15em}\\%
+	\section*{Liste der Konferenzen}
+	\underline{\smash{Vortr{\"a}ge}}\vspace{0.15em}\\%
 	\BibEntry{1}{``Bio-Inspired Controllers for Dynamic Walking: CPG Enhanced with Minimal Feedback'', Israeli Conference on Robotics, 2013.}\\%
-	\BibEntry{2}{``A Biologically Inspired Controller for Dynamic Bipedal Locomotion'', Graduate Students in Control Conference, 2012.}\\%
+	\BibEntry{2}{``A Biologically Inspired Controller for Dynamic Bipedal Locomotion'', Graduate Students in Control Conference, Israel, 2012.}\\%
 	\BibEntry{3}{``Towards a Biologically Inspired Open Loop Controller for Dynamic Biped Locomotion'', IEEE International Conference on Robotics and Biomimetics, Phuket, Thailand, 2011.}
 	\EntrySpacing
 	
 	\noindent
-	\underline{\smash{Poster Presentations}}\vspace{0.15em}\\%
-	\BibEntry{1}{``Analytical and numerical tools for limit-cycle evaluation in hybrid dynamical system'', Dynamic Walking Conference, ETH Z\"urich, Switzerland, 2014.}\\%
+	\underline{\smash{Posterpr{\"a}sentationen}}\vspace{0.15em}\\%
+	\BibEntry{1}{``Analytical and numerical tools for limit-cycle evaluation in hybrid dynamical system'', Dynamic Walking Conference, ETH Z\"urich, der Schweiz, 2014.}\\%
 	\BibEntry{2}{``Bio-Inspired Controllers for Dynamic Locomotion'', Dynamic Walking Conference, CMU Pittsburgh, USA, 2013.}\\%
 	\BibEntry{3}{``A Biologically Inspired Controller For Dynamic Biped Locomotion'', The Eighth Computational Motor Control Workshop at Ben-Gurion University of the Negev, Israel, 2012.}
 	
-	\section*{Contact information for references}
+	\section*{Kontaktinformationen f{\"u}r Referenzen}
 	\begin{itemize}
-		\item Jean-Baptiste Mouret, Ph.D. (Research Director at Inria), \EmailLink{jean-baptiste.mouret@inria.fr}
-		\item Serena Ivaldi, Ph.D. (Research Scientist at Inria), \EmailLink{serena.ivaldi@inria.fr}
-		\item Miriam Zacksenhouse, Ph.D. (Assoc. Prof. Technion), +972-54-5820404, \EmailLink{mermz@technion.ac.il}
-%		\item Yizhar Or, Ph.D. (Assoc. Prof. at Technion), +972-77-8875493, 	
+		\item Jean-Baptiste Mouret, Phd. (Forschungsdirektor bei Inria), \EmailLink{jean-baptiste.mouret@inria.fr}
+		\item Serena Ivaldi, Phd. (Wissenschaftler bei Inria), \EmailLink{serena.ivaldi@inria.fr}
+		\item Miriam Zacksenhouse, Phd. (ao. Prof. bei Technion), +972-54-5820404, \EmailLink{mermz@technion.ac.il}
+%		\item Yizhar Or, Phd. (ao. Prof. bei Technion), +972-77-8875493, 	
 %		\EmailLink{izi@technion.ac.il}
-		\item Ari Yakir (Project Manager at Cogniteam), \EmailLink{ari@cogniteam.com}
-		\item Lauri Viitas (VP of Product and Business Development at Guzik), +1-650-625-8000, \EmailLink{lauriv@guzik.com}
+		\item Ari Yakir (Projektleiter bei Cogniteam), \EmailLink{ari@cogniteam.com}
+		\item Lauri Viitas (VP f{\"u}r Produkt- und Gesch{\"a}ftsentwicklung bei Guzik), +1-650-625-8000, \EmailLink{lauriv@guzik.com}
 	\end{itemize}
 }
 
