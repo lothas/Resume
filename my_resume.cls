@@ -51,13 +51,23 @@
 % ------------------------- Section Formatting -------------------------
 \ifmultipage
 	\titleformat{\section}
-	{\normalfont\scshape\large\bfseries\color{color1}\centering}{\thesection}{}{}
+	{\normalfont\scshape\large\bfseries\color{color1}}{\thesection}{}{}
 	\titlespacing*{\section}
+	{0pt}{8pt}{1pt} % left, top, bottom
+	
+	\titleformat{\subsection}
+	{\normalfont\scshape\bfseries\color{color1}}{\thesection}{}{}
+	\titlespacing*{\subsection}
 	{0pt}{8pt}{1pt} % left, top, bottom
 \else
 	\titleformat{\section}
 	{\normalfont\scshape\Large\bfseries\color{color1}}{\thesection}{}{}
 	\titlespacing*{\section}
+	{0pt}{3pt}{1pt} % left, top, bottom
+	
+	\titleformat{\subsection}
+	{\normalfont\scshape\large\bfseries\color{color1}}{\thesection}{}{}
+	\titlespacing*{\subsection}
 	{0pt}{3pt}{1pt} % left, top, bottom
 \fi
 
@@ -67,7 +77,7 @@
 \ifmultipage
 	\newcommand\MainContent[3]{
 		\vspace{0.8in}
-		#2\\%
+		#2%
 		#3
 	}
 \else
@@ -161,14 +171,14 @@
 	{\bf #2}#3\\%
 	{\bf #4} -- #5\\%
 	#6
-}
+}%
 
 \newcommand\SimpleDiplomaEntry[4]{% dates, diploma, extras+GPA, institution, location, description
 	\noindent
 	\underline{\smash{#1}}\vspace{0.2em}\\%
 	{\bf #2}\\%
 	{\bf #3} -- #4%
-}
+}%
 
 \newcommand\SkillEntry[2]{%
 	\underline{\smash{#1}}\vspace{1.5pt}\\%
